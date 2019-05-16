@@ -1,0 +1,38 @@
+<div class="d-flex">
+  <div class="card mx-auto" style="width: 95%;">
+    <div class="card-header">
+      <h4>Pacjenci</h4>
+    </div>
+    <div class="card">
+      <div class="card-body d-flex">
+      <form>
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" placeholder="Type to search..." [(ngModel)]="searchString" name="text" class="form-control">
+          </div>
+        </div>
+      </form>
+      </div>
+      <div class="card-body d-flex">
+        <table class="table table-striped" style="width: 60%">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Imię</th>
+            <th scope="col">Nazwisko</th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let patients of (patientsList | filter: 'firstname': 'surname' : searchString); index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td style="width: 30%">{{ patients.firstname }}</td>
+            <td style="width: 30%">{{ patients.surname }}</td>
+            <td scope="row"><div class="btn btn-primary mr-4" (click)="onPatientButtonClick(patients)">Dane pacjenta</div></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

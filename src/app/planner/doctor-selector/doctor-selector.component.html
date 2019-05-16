@@ -1,0 +1,12 @@
+<div class="form-inline m-r-5">
+  <label>Wybierz specjalizację</label>
+  <select class="form-control" [value]="specializationID" (change)="changeSpecializationID($event.target.value)" style="width: 100%">
+    <option *ngFor="let specialization of specializationList" [value]="specialization.id">{{ specialization.name }} </option>
+  </select>
+</div>
+<br>
+<div class="form-inline">
+  <select class="custom-select" [value]="doctorID" (click)="emitDoctorID()" (change)="changeDoctorID($event.target.value)" size="10" style="width: 100%">
+    <option *ngFor="let doctor of doctorList" [value]="doctor.id"> {{ doctor.firstname }} {{ doctor.surname }}</option>
+  </select>
+</div>

@@ -1,0 +1,26 @@
+<div class="d-flex">
+  <div class="card mx-auto" style="width: 90%;">
+    <div class="card-header">
+      <div style="text-align:center; ">
+        <h4>Terminarz</h4>
+      </div>
+    </div>
+    <div class="card">
+      <div id="gridContainer">
+        <div class="row">
+          <div class="col-4"><app-datepicker (removeDateCalendar)="removeDateCalendar($event)"></app-datepicker></div>
+          <div class="col-6"><app-doctor-selector (removeDoctorID)="removeDoctorID($event)"></app-doctor-selector></div>
+        </div>
+        <div class="row">
+          <select class="custom-select" [value]="visitHoursID" (change)="changeVisitHoursID($event.target.value)" size="6" style="width: 100%">
+            <option *ngFor="let visit of visitHoursList" [value]="visit.id"> {{ visit.startHour }}.{{ visit.startMinute }} - {{ visit.endHour }}.{{ visit.endMinute }}</option>
+          </select>
+        </div>
+        <div class="row mt-3">
+            <button class="btn btn-primary mr-2 m-auto" style="text-align:center" (click)="onSignUpButtonClicked()" [routerLink]="['/signUpForm', date, doctorID, visitHoursID]">Zapisz na wizytę</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,11 @@
+<div style="text-align:center; ">
+
+<ngb-datepicker #dp [(ngModel)]="dateCalendar" (navigate)="date = $event.next" (click)="emit()"></ngb-datepicker>
+
+<hr/>
+
+<button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Zaznacz dzisiejszy dzień</button>
+
+<hr/>
+
+</div>
