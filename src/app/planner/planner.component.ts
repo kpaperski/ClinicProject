@@ -34,6 +34,6 @@ export class PlannerComponent implements OnInit {
   }
 
   onSignUpButtonClicked() {
-    this.router.navigate(['signUpForm', this.date, this.doctorID, this.visitHoursID]);
+    this.router.navigate(['app-appointment-form/' + this.doctorID + '/' + this.visitHoursID + '/' + this.date.day + '/' + this.date.month + '/' + this.date.year ]);
   }
 }

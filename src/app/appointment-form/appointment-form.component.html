@@ -1,3 +1,34 @@
-<p>
-  appointment-form works!
-</p>
+<div class="d-flex">
+  <div class="card mx-auto" style="width: 90%;">
+    <div class="card-header">
+      <div style="text-align:center; ">
+        <h4>Zapis na wizytę</h4>
+      </div>
+    </div>
+    <div class="card">
+      <div class="d-flex mb-1">
+        <h4 class="card-title mx-auto mt-3">Termin: {{dateDay}}.{{dateMonth}}.{{dateYear}}</h4>
+      </div>
+      <div class="d-flex mb-1">
+        <h4 *ngIf="doctor" class="card-title mx-auto mt-3">Lekarz: {{doctor.firstname}} {{ doctor.surname }}</h4>
+      </div>
+      <div class="d-flex mb-1">
+        <h4 *ngIf="visit" class="card-title mx-auto mt-3">Godzina: {{ visit.startHour }}.{{ visit.startMinute }}-{{ visit.endHour }}.{{ visit.endMinute }}</h4>
+      </div>
+      <br>
+      <form>
+        <div class="form-group ml-5" style="width: 30%">
+          <div class="input-group">
+            <input type="text" placeholder="Patient to search..." [(ngModel)]="searchString" name="text" class="form-control">
+          </div>
+        </div>
+      </form>
+      <select class="custom-select ml-5" [value]="patientID" (change)="changePatientID($event.target.value)" size="6" style="width: 90%">
+        <option *ngFor="let patient of (patientsList | filter: 'firstname': 'surname' : searchString)" [value]="patient.id"> {{ patient.firstname }} {{ patient.surname }}</option>
+      </select>
+      <br>
+      <button class="btn btn-primary mt-2 m-auto" style="text-align:center" (click)="saveAppointment()">Zapisz na wizytę</button>
+      <br>
+    </div>
+  </div>
+</div>
