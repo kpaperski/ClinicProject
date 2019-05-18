@@ -1,16 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="mx-auto mt-3 bg-secondary text-white" style="width: 98%; height: 80pt">
+<div class="row mr-3" style="height: 25pt">
+  <button *ngIf="userType === 0" class="btn btn-primary btn-sm ml-auto" style="height: 22pt" (click)="loginToSystem()">Zaloguj</button>
+  <p *ngIf="userType != 0" class="ml-auto small mt-2 mr-1">Witaj, {{ user.firstname }} {{ user.surname }} </p>
+  <button *ngIf="userType != 0" class="btn btn-primary btn-sm" style="height: 22pt" (click)="logOut()">Wyloguj</button>
+</div>
+<div class="mx-auto bg-secondary text-white" style="width: 98%; height: 182pt">
   <div style="text-align:center; ">
-    <br>
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
+    <img [src]="image" alt="Welcome image" width="100%">
+<!--    <br>-->
+<!--    <h1>-->
+<!--      Welcome to {{ title }}!-->
+<!--    </h1>-->
   </div>
 </div>
 
-<div id="gridContainer">
-  <div class="row">
-    <div class="col-2"><app-sidebar></app-sidebar></div>
-    <div class="col-10"><router-outlet></router-outlet></div>
-  </div>
-</div>
+<app-sidebar [userType]="userType"></app-sidebar>
+<router-outlet></router-outlet>
+

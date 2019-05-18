@@ -7,6 +7,7 @@
 <br>
 <div class="form-inline">
   <select class="custom-select" [value]="doctorID" (click)="emitDoctorID()" (change)="changeDoctorID($event.target.value)" size="10" style="width: 100%">
-    <option *ngFor="let doctor of doctorList" [value]="doctor.id"> {{ doctor.firstname }} {{ doctor.surname }}</option>
+    <option *ngFor="let doctor of doctorList" [value]="doctor.employerData.id"> {{ doctor.employerData.firstname }} {{ doctor.employerData.surname }}</option>
   </select>
+  <p>{{specialization.id}}</p>
 </div>

@@ -1,0 +1,50 @@
+<div class="d-flex">
+  <div class="card mx-auto" style="width: 90%;">
+    <div class="card-header">
+      <div style="text-align:center; ">
+        <h4>Terminarz</h4>
+      </div>
+    </div>
+    <div class="card">
+      <div id="gridContainer">
+        <div class="row">
+          <div class="col-3">
+            <p class="mt-2 ml-5">Godzina rozpoczęcia dyżuru:</p>
+            <div class="form-group mt-2 ml-5">
+              <ngb-timepicker [(ngModel)]="startTime" [formControl]="ctrl" required></ngb-timepicker>
+              <div *ngIf="ctrl.valid" class="small form-text text-success">Dobry wybór</div>
+              <div class="small form-text text-danger" *ngIf="!ctrl.valid">
+                <div *ngIf="ctrl.errors['required']">Wybierz poprawny czas rozpoczęcia dyżuru</div>
+                <div *ngIf="ctrl.errors['tooLate']">Godzina po zamknięciu przychodni</div>
+                <div *ngIf="ctrl.errors['tooEarly']">Godzina przed otwarciem przychodni</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <p class="mt-2 ml-5">Godzina zakończenia dyżuru:</p>
+            <div class="form-group mt-2 ml-5">
+              <ngb-timepicker [(ngModel)]="endTime" [formControl]="ctrl1" required></ngb-timepicker>
+              <div *ngIf="ctrl1.valid && ((startTime | json) < (endTime | json))" class="small form-text text-success">Dobry wybór</div>
+              <div *ngIf="ctrl1.valid && ((startTime | json) > (endTime | json))" class="small form-text text-danger">Godzina zakończenia musi być po godzinie rozpoczęcia dyżuru</div>
+              <div class="small form-text text-danger" *ngIf="!ctrl1.valid">
+                <div *ngIf="ctrl1.errors['required']">Wybierz poprawny czas rozpoczęcia dyżuru</div>
+                <div *ngIf="ctrl1.errors['tooLate']">Godzina po zamknięciu przychodni</div>
+                <div *ngIf="ctrl1.errors['tooEarly']">Godzina przed otwarciem przychodni</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <hr class="ml-5">
+            <label class="ml-5">Wybierz dzień</label>
+            <select class="form-control ml-5" [value]="day" (change)="changeDay($event.target.value)" style="width: 100%">
+              <option *ngFor="let day of dayList" [value]="day">{{ day }} </option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <button class="btn btn-primary mr-2 m-auto" style="text-align:center" (click)="onAddDuty()">Dodaj dyżur</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

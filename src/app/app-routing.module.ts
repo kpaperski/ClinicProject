@@ -5,6 +5,9 @@ import {PatientDetailsComponent} from './patient-details/patient-details.compone
 import {PatientFormComponent} from './patient-form/patient-form.component';
 import {PlannerComponent} from './planner/planner.component';
 import {AppointmentFormComponent} from './appointment-form/appointment-form.component';
+import {DoctorPlannerComponent} from './doctor-planner/doctor-planner.component';
+import {EmployeesComponent} from './employees/employees.component';
+import {WelcomePageComponent} from './welcome-page/welcome-page.component';
 
 const routes: Routes = [
   {
@@ -27,10 +30,19 @@ const routes: Routes = [
     path: 'app-appointment-form/:doctorId/:visitId/:dateDay/:dateMonth/:dateYear',
     component: AppointmentFormComponent,
   },
+
+  {
+    path: 'doctorPlanner',
+    component: DoctorPlannerComponent
+  },
+
+  {
+    path: 'employees',
+    component: EmployeesComponent
+  },
   {
     path: '',
-    redirectTo: '/patients',
-    pathMatch: 'full'
+    component: WelcomePageComponent
   }
 
 ];

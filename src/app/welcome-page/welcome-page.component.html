@@ -1,0 +1,23 @@
+<ngb-carousel class="m-auto" style="width: 70%" *ngIf="images">
+  <ng-template ngbSlide>
+    <img [src]="images[0]" alt="Welcome slide show" width="100%" height="100%">
+    <div class="carousel-caption text-black-50">
+      <h3>Zapewniamy krótki czas oczekiwania na wizytę</h3>
+      <p>U nas nie będziesz czekał w kolejkach, gdyż wizyty realizowane są w przeciągu miesiąca</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[2]" alt="Welcome slide show" width="100%" height="100%">
+    <div class="carousel-caption text-black-50">
+      <h3>Oferujemy obługę najlepszych specjalistów</h3>
+      <p>Zatrudniamy zarówno lekarzy rodzinnych jak i specjalistów</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[1]" alt="Welcome slide show" width="100%" height="100%">
+    <div class="carousel-caption text-black-50">
+      <h3>Przeprowadzamy wiele badań</h3>
+      <p>Nasi lekarze wykonają wszystkie niezbędne przy wizycie badania</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

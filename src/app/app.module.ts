@@ -14,6 +14,9 @@ import {DoctorDetailsComponent} from './doctor-details/doctor-details.component'
 import {MatFormFieldModule} from '@angular/material';
 import {PlannerModule} from './planner/planner.module';
 import {AppointmentFormModule} from './appointment-form/appointment-form.module';
+import {DoctorPlannerModule} from './doctor-planner/doctor-planner.module';
+import {EmployeesModule} from './employees/employees.module';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import {AppointmentFormModule} from './appointment-form/appointment-form.module'
     AppointmentComponent,
     DoctorDetailsComponent,
     SpecializationComponent,
+    WelcomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,8 @@ import {AppointmentFormModule} from './appointment-form/appointment-form.module'
     PatientsModule,
     PlannerModule,
     AppointmentFormModule,
+    DoctorPlannerModule,
+    EmployeesModule,
     ReactiveFormsModule,
     FormsModule,
     NgbModule,

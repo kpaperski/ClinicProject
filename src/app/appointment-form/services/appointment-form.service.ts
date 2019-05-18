@@ -15,7 +15,7 @@ export class AppointmentFormService {
   constructor() { }
 
   fetchDoctor(doctorID: number): Promise<DoctorDetailsModel> {
-    const doctorToReturn: DoctorDetailsModel = mockDoctorDetails.filter(doctor => doctor.id === doctorID)[0];
+    const doctorToReturn: DoctorDetailsModel = mockDoctorDetails.filter(doctor => doctor.employerData.id === doctorID)[0];
     return Promise.resolve(doctorToReturn);
   }
 

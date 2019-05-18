@@ -1,0 +1,41 @@
+<div class="d-flex">
+  <div class="card mx-auto" style="width: 95%;">
+    <div class="card-header" style="text-align: center">
+      <h4>Pracownicy</h4>
+    </div>
+    <div class="card" style="width: 100%">
+      <div class="card-body d-flex ml-4 m-auto" style="width: 80%">
+        <form>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" placeholder="Type to search..." [(ngModel)]="searchEmployer" name="text" class="form-control">
+            </div>
+          </div>
+        </form>
+        <button class="btn btn-primary btn-sm m-auto mr-lg-1">Dodaj nowego pracownika</button>
+      </div>
+      <div class="card-body d-flex ml-4">
+        <table class="table table-striped m-auto" style="width: 80%">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Imię</th>
+            <th scope="col">Nazwisko</th>
+            <th scope="col">Stanowisko</th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let employer of (employeesList | filter: 'firstname': 'surname' : searchEmployer); index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td style="width: 20%">{{ employer.firstname }}</td>
+            <td style="width: 20%">{{ employer.surname }}</td>
+            <td style="width: 20%">{{ employer.employerRole }}</td>
+            <td scope="row"><div class="btn btn-primary mr-4" (click)="onEmployerButtonClick(employer)">Dane pracownika</div></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
