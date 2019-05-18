@@ -22,4 +22,8 @@ export class EmployeesComponent implements OnInit {
     this.router.navigate(['employer/' + employer.id]);
   }
 
+  onNewEmployerButtonClick() {
+    this.router.navigate(['newEmployer']);
+  }
+
 }

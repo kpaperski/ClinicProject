@@ -1,54 +1,60 @@
-<div class="modal-header ml-3" style="width: 70%">
-  <h5 class="modal-title ml-3" id="modal-basic-title">Dodawanie nowego pacjenta</h5>
-</div>
-<div class="modal-body ml-3" style="width: 70%">
-  <form>
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width: 5.5cm">Imię</span>
-        </div>
-        <input type="text" [(ngModel)]="patientToEdit.firstname" name="firstname" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width: 5.5cm">Nazwisko</span>
-        </div>
-        <input type="text" [(ngModel)]="patientToEdit.surname" name="surname" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width: 5.5cm">Numer telefonu</span>
-        </div>
-        <input type="text" [(ngModel)]="patientToEdit.phoneNumber" name="phoneNumber" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width: 5.5cm">Ulica</span>
-        </div>
-        <input type="text" [(ngModel)]="patientAddressToEdit.street" name="street" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width: 5.5cm">Numer domu/mieszkania</span>
-        </div>
-        <input type="text" [(ngModel)]="patientAddressToEdit.houseNumber" name="houseNumber" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width: 5.5cm">Miejscowość</span>
-        </div>
-        <input type="text" [(ngModel)]="patientAddressToEdit.city" name="city" class="form-control">
-      </div>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" style="width: 5.5cm">Kod pocztowy</span>
-        </div>
-        <input type="text" [(ngModel)]="patientAddressToEdit.postCode" name="postCode" class="form-control">
+<div class="d-flex">
+  <div class="card mx-auto" style="width: 90%;">
+    <div class="card-header">
+      <div style="text-align:center; ">
+        <h5 class="modal-title ml-3" id="modal-basic-title">Dodawanie nowego pacjenta</h5>
       </div>
     </div>
-  </form>
-</div>
-<div class="modal-footer ml-3" style="width: 70%">
-  <div class="btn btn-primary" (click)="savePatient()">Zapisz</div>
+    <div class="card">
+      <form>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Imię</span>
+            </div>
+            <input type="text" [(ngModel)]="patientToEdit.firstname" name="firstname" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Nazwisko</span>
+            </div>
+            <input type="text" [(ngModel)]="patientToEdit.surname" name="surname" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Numer telefonu</span>
+            </div>
+            <input type="text" [(ngModel)]="patientToEdit.phoneNumber" name="phoneNumber" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Ulica</span>
+            </div>
+            <input type="text" [(ngModel)]="patientAddressToEdit.street" name="street" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Numer domu/mieszkania</span>
+            </div>
+            <input type="text" [(ngModel)]="patientAddressToEdit.houseNumber" name="houseNumber" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Miejscowość</span>
+            </div>
+            <input type="text" [(ngModel)]="patientAddressToEdit.city" name="city" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Kod pocztowy</span>
+            </div>
+            <input type="text" [(ngModel)]="patientAddressToEdit.postCode" name="postCode" class="form-control">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer m-auto">
+      <div class="btn btn-primary m-auto" style="text-align: center" (click)="savePatient()">Zapisz</div>
+    </div>
+  </div>
 </div>

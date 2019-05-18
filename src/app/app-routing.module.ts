@@ -8,6 +8,7 @@ import {AppointmentFormComponent} from './appointment-form/appointment-form.comp
 import {DoctorPlannerComponent} from './doctor-planner/doctor-planner.component';
 import {EmployeesComponent} from './employees/employees.component';
 import {WelcomePageComponent} from './welcome-page/welcome-page.component';
+import {EmployerFormComponent} from './employer-form/employer-form.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'employees',
     component: EmployeesComponent
+  },
+  {
+    path: 'newEmployer',
+    component: EmployerFormComponent
   },
   {
     path: '',

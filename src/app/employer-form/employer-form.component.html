@@ -1,0 +1,58 @@
+<div class="d-flex">
+  <div class="card mx-auto" style="width: 90%;">
+    <div class="card-header">
+      <div style="text-align:center; ">
+        <h5 class="modal-title ml-3" id="modal-basic-title">Dodawanie nowego pacjenta</h5>
+      </div>
+    </div>
+    <div class="card">
+      <form>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Imię</span>
+            </div>
+            <input type="text" [(ngModel)]="newEmployer.firstname" name="firstname" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Nazwisko</span>
+            </div>
+            <input type="text" [(ngModel)]="newEmployer.surname" name="surname" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Login</span>
+            </div>
+            <input type="text" [(ngModel)]="newEmployer.login" name="login" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Hasło</span>
+            </div>
+            <input type="text" [(ngModel)]="newEmployer.password" name="password" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Stanowisko</span>
+            </div>
+            <select class="custom-select" [value]="newEmployer.employerRole" (change)="changeEmployerRole($event.target.value)">
+              <option *ngFor="let role of ['recepcjonista', 'lekarz', 'administrator']" [value]="role"> {{ role }}</option>
+            </select>
+          </div>
+          <div *ngIf="newEmployer.employerRole === 'lekarz'" class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">Specjalizacja</span>
+            </div>
+            <select class="custom-select" [value]="specializations" multiple>
+              <option *ngFor="let specialization of specializationList" [value]="specialization"> {{ specialization.name }}</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer m-auto">
+      <div class="btn btn-primary m-auto" style="text-align: center" (click)="saveEmployer()">Zapisz</div>
+    </div>
+  </div>
+</div>

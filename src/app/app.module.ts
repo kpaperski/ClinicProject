@@ -17,6 +17,8 @@ import {AppointmentFormModule} from './appointment-form/appointment-form.module'
 import {DoctorPlannerModule} from './doctor-planner/doctor-planner.module';
 import {EmployeesModule} from './employees/employees.module';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { EmployerFormComponent } from './employer-form/employer-form.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
     DoctorDetailsComponent,
     SpecializationComponent,
     WelcomePageComponent,
+    LoginFormComponent,
+    EmployerFormComponent,
   ],
   imports: [
     BrowserModule,

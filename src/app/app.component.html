@@ -1,8 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="row mr-3" style="height: 25pt">
-  <button *ngIf="userType === 0" class="btn btn-primary btn-sm ml-auto" style="height: 22pt" (click)="loginToSystem()">Zaloguj</button>
-  <p *ngIf="userType != 0" class="ml-auto small mt-2 mr-1">Witaj, {{ user.firstname }} {{ user.surname }} </p>
-  <button *ngIf="userType != 0" class="btn btn-primary btn-sm" style="height: 22pt" (click)="logOut()">Wyloguj</button>
+  <button *ngIf="!user || user.employerRole === ''" class="btn btn-primary btn-sm ml-auto" style="height: 22pt" (click)="loginToSystem(content)">Zaloguj</button>
+  <p *ngIf="user && user.employerRole != ''" class="ml-auto small mt-2 mr-1">Witaj, {{ user.firstname }} {{ user.surname }} {{ user.employerRole }}</p>
+  <button *ngIf="user && user.employerRole != ''" class="btn btn-primary btn-sm" style="height: 22pt" (click)="logOut()">Wyloguj</button>
 </div>
 <div class="mx-auto bg-secondary text-white" style="width: 98%; height: 182pt">
   <div style="text-align:center; ">
@@ -14,6 +14,37 @@
   </div>
 </div>
 
-<app-sidebar [userType]="userType"></app-sidebar>
+<app-sidebar *ngIf="user" [userType]="user.employerRole"></app-sidebar>
+<div *ngIf="!user" class="row"><div class="mx-auto bg-light text-white" style="width: 95%; height: 35pt"></div></div>
 <router-outlet></router-outlet>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title m-auto" id="modal-basic-title" style="text-align: center">Zaloguj</h5>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Login</span>
+          </div>
+          <input type="string" [(ngModel)]="login" name="login" class="form-control">
+        </div>
+        <div class="input-group mt-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Hasło</span>
+          </div>
+          <input type="password" [(ngModel)]="password" name="password" class="form-control">
+          <!--          <ng-number-picker [(ngModel)]="activitiesToEdit.activityPoints" name="number" class="form-control"></ng-number-picker> -->
+        </div>
+      </div>
+    </form>
+    <div *ngIf="falseLogin" class="small form-text text-danger">Niepoprawny login lub hasło</div>
+  </div>
+  <div class="modal-footer">
+    <div class="btn btn-secondary m1-auto" (click)="modal.close()">Anuluj</div>
+    <div class="btn btn-primary" (click)="logIn(modal)">Zaloguj</div>
+  </div>
+</ng-template>
 

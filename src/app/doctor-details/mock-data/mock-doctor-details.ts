@@ -2,14 +2,9 @@ import {DoctorDetailsModel} from '../models/doctor-details.model';
 
 export const mockDoctorDetails: DoctorDetailsModel[] = [
   {
-    employerData: {
-      id: 1,
-      login: 'jkow',
-      password: 'jkow1',
-      firstname: 'Jan',
-      surname: 'Kowalski',
-      employerRole: 'lekarz'
-    },
+    id: 1,
+    firstname: 'Jan',
+    surname: 'Kowalski',
     specialization: [
       {
         id: 1,
@@ -22,14 +17,9 @@ export const mockDoctorDetails: DoctorDetailsModel[] = [
     ],
   },
   {
-    employerData: {
-      id: 2,
-      login: 'akow',
-      password: 'akow2',
-      firstname: 'Anna',
-      surname: 'Kowalska',
-      employerRole: 'lekarz'
-    },
+    id: 2,
+    firstname: 'Anna',
+    surname: 'Nowak',
     specialization: [
       {
         id: 3,
@@ -38,14 +28,9 @@ export const mockDoctorDetails: DoctorDetailsModel[] = [
     ],
   },
   {
-    employerData: {
-      id: 3,
-      login: 'rnow',
-      password: 'rnow3',
-      firstname: 'Ryszard',
-      surname: 'Nowak',
-      employerRole: 'lekarz'
-    },
+    id: 3,
+    firstname: 'Ryszard',
+    surname: 'Nowak',
     specialization: [
       {
         id: 1,
@@ -58,14 +43,9 @@ export const mockDoctorDetails: DoctorDetailsModel[] = [
     ],
   },
   {
-    employerData: {
-      id: 4,
-      login: 'tnow',
-      password: 'tnow4',
-      firstname: 'Teresa',
-      surname: 'Nowak',
-      employerRole: 'lekarz'
-    },
+    id: 4,
+    firstname: 'Teresa',
+    surname: 'Nowak',
     specialization: [
       {
         id: 4,
@@ -78,14 +58,9 @@ export const mockDoctorDetails: DoctorDetailsModel[] = [
     ],
   },
   {
-    employerData: {
-      id: 5,
-      login: 'imic',
-      password: 'imic4',
-      firstname: 'Irena',
-      surname: 'Michalska',
-      employerRole: 'lekarz'
-    },
+    id: 5,
+    firstname: 'Irena',
+    surname: 'Michalska',
     specialization: [
       {
         id: 1,
@@ -98,14 +73,9 @@ export const mockDoctorDetails: DoctorDetailsModel[] = [
     ],
   },
   {
-    employerData: {
-      id: 6,
-      login: 'gmic',
-      password: 'gmic4',
-      firstname: 'Grażyna',
-      surname: 'Mickiewicz',
-      employerRole: 'lekarz'
-    },
+    id: 6,
+    firstname: 'Grażyna',
+    surname: 'Mickiewicz',
     specialization: [
       {
         id: 1,

@@ -1,16 +1,16 @@
 <div class="row">
 
-<div class="mx-auto bg-light text-white" style="width: 95%; height: 40pt">
+<div class="mx-auto bg-light text-white" style="width: 95%; height: 35pt">
 
-<div *ngIf="userType === 1" class="btn btn-outline-info mr-auto" (click)="onPlannerButtonClick()">Terminarz</div>
+<div *ngIf="userType === 'recepcjonista'" class="btn btn-outline-info mr-auto" (click)="onPlannerButtonClick()">Terminarz</div>
 
-<div *ngIf="userType === 1" class="btn btn-outline-info ml-2" (click)="onNewPatientButtonClick()">Dodaj pacjenta</div>
+<div *ngIf="userType === 'recepcjonista'" class="btn btn-outline-info ml-2" (click)="onNewPatientButtonClick()">Dodaj pacjenta</div>
 
-<div *ngIf="userType === 1" class="btn btn-outline-info ml-2" (click)="onPatientsButtonClick()">Lista pacjentów</div>
+<div *ngIf="userType === 'recepcjonista'" class="btn btn-outline-info ml-2" (click)="onPatientsButtonClick()">Lista pacjentów</div>
 
-<div *ngIf="userType === 2" class="btn btn-outline-info ml-2" (click)="onDoctorPlannerButtonClick()">Dodawanie dyżurów</div>
+<div *ngIf="userType === 'lekarz'" class="btn btn-outline-info ml-2" (click)="onDoctorPlannerButtonClick()">Dodawanie dyżurów</div>
 
-<div *ngIf="userType === 3" class="btn btn-outline-info ml-2" (click)="onEmployeesButtonClick()">Lista pracowników</div>
+<div *ngIf="userType === 'administrator'" class="btn btn-outline-info ml-2" (click)="onEmployeesButtonClick()">Lista pracowników</div>
 
 </div>
 

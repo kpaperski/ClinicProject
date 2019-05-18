@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  @Input() userType: number;
+  @Input() userType: string;
 
   constructor(private router: Router) { }
 
