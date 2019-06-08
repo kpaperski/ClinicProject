@@ -9,6 +9,8 @@ import {DoctorPlannerComponent} from './doctor-planner/doctor-planner.component'
 import {EmployeesComponent} from './employees/employees.component';
 import {WelcomePageComponent} from './welcome-page/welcome-page.component';
 import {EmployerFormComponent} from './employer-form/employer-form.component';
+import {DoctorAppointmentComponent} from './doctor-appointment/doctor-appointment.component';
+import {AppointmentRealisationComponent} from './appointment-realisation/appointment-realisation.component';
 
 const routes: Routes = [
   {
@@ -33,8 +35,18 @@ const routes: Routes = [
   },
 
   {
-    path: 'doctorPlanner',
+    path: 'doctorPlanner/:doctorId',
     component: DoctorPlannerComponent
+  },
+
+  {
+    path: 'doctorAppointment/:doctorId',
+    component: DoctorAppointmentComponent
+  },
+
+  {
+    path: 'appointmentRealisation/:appointmentId',
+    component: AppointmentRealisationComponent
   },
 
   {

@@ -9,7 +9,7 @@ export class EmployeesService {
 
   constructor() { }
 
-  static fetchEmployeesList(): Promise<EmployeesModels[]> {
+  fetchEmployeesList(): Promise<EmployeesModels[]> {
     return Promise.resolve(MockEmployees);
   }
 }

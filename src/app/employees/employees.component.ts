@@ -15,7 +15,7 @@ export class EmployeesComponent implements OnInit {
   constructor(private router: Router, private service: EmployeesService) { }
 
   ngOnInit() {
-    EmployeesService.fetchEmployeesList().then((list: EmployeesModels[]) => this.employeesList = list);
+    this.service.fetchEmployeesList().then((list: EmployeesModels[]) => this.employeesList = list);
   }
 
   onEmployerButtonClick(employer: EmployeesModels) {

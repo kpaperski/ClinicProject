@@ -1,0 +1,31 @@
+<div class="d-flex">
+  <div class="card mx-auto" style="width: 95%;">
+    <div class="card-header" style="text-align: center">
+      <h4>Lista dzisiejszych wizyt</h4>
+    </div>
+    <div class="card">
+      <div class="card-body d-flex">
+        <table class="table table-striped" style="width: 80%; margin-left: auto; margin-right: auto;">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Imię pacjenta</th>
+            <th scope="col">Nazwisko pacjenta</th>
+            <th scope="col">Termin wizyty</th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let appointment of appointmentList; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td style="width: 25%">{{ appointment.patientFirstname }}</td>
+            <td style="width: 25%">{{ appointment.patientSurname }}</td>
+            <td style="width: 25%">{{ appointment.time }}</td>
+            <td scope="row"><div class="btn btn-primary mr-4" (click)="onEditAppointmentButtonClick(appointment)">Przejdź do wizyty</div></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

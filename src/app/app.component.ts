@@ -35,7 +35,7 @@ export class AppComponent {
 
   logIn(content) {
     this.userID = this.service.logIn(this.login, this.password);
-    if (this.userID != 0) {
+    if (this.userID !== 0) {
       this.fetchUserInfo();
       this.falseLogin = false;
       this.userType = this.user.employerRole;
@@ -44,7 +44,6 @@ export class AppComponent {
     } else {
       this.falseLogin = true;
     }
-
   }
 
   logOut() {

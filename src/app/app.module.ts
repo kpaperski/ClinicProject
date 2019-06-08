@@ -19,6 +19,8 @@ import {EmployeesModule} from './employees/employees.module';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { EmployerFormComponent } from './employer-form/employer-form.component';
+import {DoctorAppointmentModule} from './doctor-appointment/doctor-appointment.module';
+import {AppointmentRealisationModule} from './appointment-realisation/appointment-realisation.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,9 @@ import { EmployerFormComponent } from './employer-form/employer-form.component';
     AppointmentFormModule,
     DoctorPlannerModule,
     EmployeesModule,
+    DoctorAppointmentModule,
+    AppointmentRealisationModule,
+    PatientsModule,
     ReactiveFormsModule,
     FormsModule,
     NgbModule,

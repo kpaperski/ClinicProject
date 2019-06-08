@@ -4,9 +4,9 @@
   <p *ngIf="user && user.employerRole != ''" class="ml-auto small mt-2 mr-1">Witaj, {{ user.firstname }} {{ user.surname }} {{ user.employerRole }}</p>
   <button *ngIf="user && user.employerRole != ''" class="btn btn-primary btn-sm" style="height: 22pt" (click)="logOut()">Wyloguj</button>
 </div>
-<div class="mx-auto bg-secondary text-white" style="width: 98%; height: 182pt">
+<div class="mx-auto bg-white text-white" style="width: 98%; height: 180pt">
   <div style="text-align:center; ">
-    <img [src]="image" alt="Welcome image" width="100%">
+    <img [src]="image" alt="Welcome image" width="100%" height="100%">
 <!--    <br>-->
 <!--    <h1>-->
 <!--      Welcome to {{ title }}!-->
@@ -14,7 +14,7 @@
   </div>
 </div>
 
-<app-sidebar *ngIf="user" [userType]="user.employerRole"></app-sidebar>
+<app-sidebar *ngIf="user" [userID]="user.id" [userType]="user.employerRole"></app-sidebar>
 <div *ngIf="!user" class="row"><div class="mx-auto bg-light text-white" style="width: 95%; height: 35pt"></div></div>
 <router-outlet></router-outlet>
 

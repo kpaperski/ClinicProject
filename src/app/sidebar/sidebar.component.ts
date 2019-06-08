@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
   @Input() userType: string;
+  @Input() userID: number;
 
   constructor(private router: Router) { }
 
@@ -27,8 +28,13 @@ export class SidebarComponent implements OnInit {
   }
 
   onDoctorPlannerButtonClick() {
-    this.router.navigate(['doctorPlanner']);
+    this.router.navigate(['doctorPlanner/' + this.userID]);
   }
+
+  onDoctorAppointmentButtonClick() {
+    this.router.navigate(['doctorAppointment/' + this.userID]);
+  }
+
 
   onEmployeesButtonClick() {
     this.router.navigate(['employees']);
