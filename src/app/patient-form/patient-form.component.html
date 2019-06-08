@@ -28,6 +28,12 @@
           </div>
           <div class="input-group">
             <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 5.5cm">PESEL</span>
+            </div>
+            <input type="text" [(ngModel)]="patientToEdit.pesel" name="phoneNumber" class="form-control">
+          </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
               <span class="input-group-text" style="width: 5.5cm">Ulica</span>
             </div>
             <input type="text" [(ngModel)]="patientAddressToEdit.street" name="street" class="form-control">

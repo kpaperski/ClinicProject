@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {AppointmentRealisationComponent} from './appointment-realisation.component';
+import {ExaminationsComponent} from './examinations.component';
 import {FormsModule} from '@angular/forms';
+import {FilterPipe} from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
-    AppointmentRealisationComponent
+    ExaminationsComponent,
+    FilterPipe,
   ],
   imports: [
     CommonModule,
     FormsModule
   ]
 })
-export class AppointmentRealisationModule { }
+export class ExaminationsModule { }

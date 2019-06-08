@@ -35,8 +35,19 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(['doctorAppointment/' + this.userID]);
   }
 
-
   onEmployeesButtonClick() {
     this.router.navigate(['employees']);
+  }
+
+  onOfficesButtonClick() {
+    this.router.navigate(['offices']);
+  }
+
+  onSpecializationsButtonClick() {
+    this.router.navigate(['specializations']);
+  }
+
+  onExaminationsButtonClick() {
+    this.router.navigate(['examinations']);
   }
 }

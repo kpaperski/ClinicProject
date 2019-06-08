@@ -9,7 +9,6 @@ import {PatientsModule} from './patients/patients.module';
 import { PatientFormComponent } from './patient-form/patient-form.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { SpecializationComponent } from './specialization/specialization.component';
 import {DoctorDetailsComponent} from './doctor-details/doctor-details.component';
 import {MatFormFieldModule} from '@angular/material';
 import {PlannerModule} from './planner/planner.module';
@@ -21,6 +20,10 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { EmployerFormComponent } from './employer-form/employer-form.component';
 import {DoctorAppointmentModule} from './doctor-appointment/doctor-appointment.module';
 import {AppointmentRealisationModule} from './appointment-realisation/appointment-realisation.module';
+import {PatientCardModule} from './patient-card/patient-card.module';
+import {DoctorsOfficeModule} from './doctors-office/doctors-office.module';
+import {SpecializationModule} from './specialization/specialization.module';
+import {ExaminationsModule} from './examinations/examinations.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,6 @@ import {AppointmentRealisationModule} from './appointment-realisation/appointmen
     PatientFormComponent,
     AppointmentComponent,
     DoctorDetailsComponent,
-    SpecializationComponent,
     WelcomePageComponent,
     LoginFormComponent,
     EmployerFormComponent,
@@ -44,7 +46,10 @@ import {AppointmentRealisationModule} from './appointment-realisation/appointmen
     EmployeesModule,
     DoctorAppointmentModule,
     AppointmentRealisationModule,
-    PatientsModule,
+    PatientCardModule,
+    DoctorsOfficeModule,
+    SpecializationModule,
+    ExaminationsModule,
     ReactiveFormsModule,
     FormsModule,
     NgbModule,

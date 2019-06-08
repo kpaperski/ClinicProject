@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {AppointmentDetailsModel} from '../models/appoitment-details.model';
 import {MockAppointmentDetails} from '../mock-data/mock-appointment-details';
-import {ExaminationModel} from '../../different-models/models/examination.model';
-import {MockExamination} from '../../different-models/mock-data/mock-examination';
-import {ReferralModel} from '../../different-models/models/referral.model';
+import {ExaminationModel} from '../../examinations/models/examination.model';
+import {MockExamination} from '../../examinations/mock-data/mock-examination';
+import {ReferralModel} from '../models/referral.model';
 
 @Injectable({
   providedIn: 'root'

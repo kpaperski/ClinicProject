@@ -1,33 +1,33 @@
 <div class="d-flex">
   <div class="card mx-auto" style="width: 95%;">
     <div class="card-header" style="text-align: center">
-      <h4>Specializacje lekarskie</h4>
+      <h4>Gabinety</h4>
     </div>
     <div class="card" style="width: 100%">
       <div class="card-body d-flex ml-4 m-auto" style="width: 80%">
         <form>
           <div class="form-group">
             <div class="input-group">
-              <input type="text" placeholder="Wyszukaj specializację..." [(ngModel)]="searchSpecialization" name="text" class="form-control">
+              <input type="text" placeholder="Wyszukaj gabinet..." [(ngModel)]="searchOffice" name="text" class="form-control">
             </div>
           </div>
         </form>
-        <button class="btn btn-primary btn-sm m-auto mr-lg-1" (click)="onNewSpecializationButtonClick(content)">Dodaj nową specializacji</button>
+        <button class="btn btn-primary btn-sm m-auto mr-lg-1" (click)="onNewOfficeButtonClick(content)">Dodaj nowy gabinet</button>
       </div>
       <div class="card-body d-flex ml-4">
         <table class="table table-striped m-auto" style="width: 80%">
           <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Nazwa specializacji lekarskiej</th>
+            <th scope="col">Numer gabinetu</th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let specialization of (specializationList | filter: 'name' : searchSpecialization); index as i">
+          <tr *ngFor="let office of (officeList | filter: 'officeNum' : searchOffice); index as i">
             <th scope="row" style="width: 10%">{{ i + 1 }}</th>
-            <td style="width: 60%">{{ specialization.name }}</td>
+            <td style="width: 60%">{{ office.officeNum }}</td>
             <td scope="row"></td>
             <td scope="row"></td>
           </tr>
@@ -40,20 +40,20 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h5 class="modal-title" id="modal-basic-title">Dodawanie nowej specializacji</h5>
+    <h5 class="modal-title" id="modal-basic-title">Dodawanie nowego gabinetu</h5>
   </div>
   <div class="modal-body">
     <form>
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">Nazwa specializacji</span>
+          <span class="input-group-text">Numer gabinetu</span>
         </div>
-        <input type="string" [(ngModel)]="specializationToAdd.name" name="specialization" class="form-control">
+        <input type="string" [(ngModel)]="officeToAdd.officeNum" name="login" class="form-control">
       </div>
     </form>
   </div>
   <div class="modal-footer">
     <div class="btn btn-secondary m1-auto" (click)="modal.close()">Anuluj</div>
-    <div class="btn btn-primary" (click)="addSpecialization(modal)">Dodaj</div>
+    <div class="btn btn-primary" (click)="addOffice(modal)">Dodaj</div>
   </div>
 </ng-template>

@@ -11,6 +11,10 @@ import {WelcomePageComponent} from './welcome-page/welcome-page.component';
 import {EmployerFormComponent} from './employer-form/employer-form.component';
 import {DoctorAppointmentComponent} from './doctor-appointment/doctor-appointment.component';
 import {AppointmentRealisationComponent} from './appointment-realisation/appointment-realisation.component';
+import {PatientCardComponent} from './patient-card/patient-card.component';
+import {DoctorsOfficeComponent} from './doctors-office/doctors-office.component';
+import {SpecializationComponent} from './specialization/specialization.component';
+import {ExaminationsComponent} from './examinations/examinations.component';
 
 const routes: Routes = [
   {
@@ -50,12 +54,29 @@ const routes: Routes = [
   },
 
   {
+    path: 'patientCard/:patientId/:doctorId',
+    component: PatientCardComponent
+  },
+
+  {
     path: 'employees',
     component: EmployeesComponent
   },
   {
     path: 'newEmployer',
     component: EmployerFormComponent
+  },
+  {
+    path: 'offices',
+    component: DoctorsOfficeComponent
+  },
+  {
+    path: 'specializations',
+    component: SpecializationComponent
+  },
+  {
+    path: 'examinations',
+    component: ExaminationsComponent
   },
   {
     path: '',

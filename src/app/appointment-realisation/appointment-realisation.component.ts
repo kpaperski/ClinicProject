@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AppointmentDetailsModel} from './models/appoitment-details.model';
 import {AppointmentRealisationService} from './services/appointment-realisation.service';
-import {ExaminationModel} from '../different-models/models/examination.model';
+import {ExaminationModel} from '../examinations/models/examination.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ReferralModel} from '../different-models/models/referral.model';
+import {ReferralModel} from './models/referral.model';
 
 @Component({
   selector: 'app-appointment-realisation',

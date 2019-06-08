@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {DoctorsOfficeModel} from '../different-models/models/doctors-office.model';
+import {DoctorsOfficeModel} from '../doctors-office/models/doctors-office.model';
 import {DoctorPlannerServices} from './services/doctor-planner.services';
 import {DutyModel} from './models/duty.model';
 import {ActivatedRoute, Router} from '@angular/router';
