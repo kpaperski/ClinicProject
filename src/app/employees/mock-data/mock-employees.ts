@@ -7,7 +7,7 @@ export const MockEmployees: EmployeesModels[] = [
     password: 'jkow1',
     firstname: 'Jan',
     surname: 'Kowalski',
-    employerRole: 'lekarz'
+    role: 'lekarz'
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const MockEmployees: EmployeesModels[] = [
     password: 'akow2',
     firstname: 'Anna',
     surname: 'Kowalska',
-    employerRole: 'lekarz'
+    role: 'lekarz'
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const MockEmployees: EmployeesModels[] = [
     password: 'rnow3',
     firstname: 'Ryszard',
     surname: 'Nowak',
-    employerRole: 'lekarz'
+    role: 'lekarz'
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const MockEmployees: EmployeesModels[] = [
     password: 'tnow4',
     firstname: 'Teresa',
     surname: 'Nowak',
-    employerRole: 'lekarz'
+    role: 'lekarz'
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ export const MockEmployees: EmployeesModels[] = [
     password: 'imic5',
     firstname: 'Irena',
     surname: 'Michalska',
-    employerRole: 'lekarz'
+    role: 'lekarz'
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ export const MockEmployees: EmployeesModels[] = [
     password: 'gmic6',
     firstname: 'Grażyna',
     surname: 'Mickiewicz',
-    employerRole: 'lekarz'
+    role: 'lekarz'
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ export const MockEmployees: EmployeesModels[] = [
     password: 'wslo7',
     firstname: 'Wiesława',
     surname: 'Słowacka',
-    employerRole: 'recepcjonista'
+    role: 'recepcjonista'
   },
   {
     id: 8,
@@ -63,7 +63,7 @@ export const MockEmployees: EmployeesModels[] = [
     password: 'lgor8',
     firstname: 'Ludmiła',
     surname: 'Górczyńska',
-    employerRole: 'recepcjonista'
+    role: 'recepcjonista'
   },
   {
     id: 9,
@@ -71,6 +71,6 @@ export const MockEmployees: EmployeesModels[] = [
     password: 'kpap8',
     firstname: 'Karol',
     surname: 'Pąperski',
-    employerRole: 'administrator'
+    role: 'administrator'
   }
 ];

@@ -4,5 +4,5 @@ export class EmployeesModels {
   password: string;
   firstname: string;
   surname: string;
-  employerRole: string;
+  role: string;
 }

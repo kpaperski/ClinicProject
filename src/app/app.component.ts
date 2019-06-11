@@ -38,7 +38,7 @@ export class AppComponent {
     if (this.userID !== 0) {
       this.fetchUserInfo();
       this.falseLogin = false;
-      this.userType = this.user.employerRole;
+      this.userType = this.user.role;
       content.close();
       this.router.navigate(['']);
     } else {
@@ -47,7 +47,7 @@ export class AppComponent {
   }
 
   logOut() {
-    this.user.employerRole = '';
+    this.user.role = '';
     this.userType = '';
     this.router.navigate(['']);
   }

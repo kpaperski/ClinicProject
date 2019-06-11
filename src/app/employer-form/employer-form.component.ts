@@ -3,6 +3,7 @@ import {EmployeesModels} from '../employees/models/employees.models';
 import {EmployerFormService} from './services/employer-form.service';
 import {SpecializationModel} from '../specialization/models/specialization.model';
 import {mockSpecializations} from '../specialization/mock-data/mock-specializations';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-employer-form',
@@ -14,7 +15,7 @@ export class EmployerFormComponent implements OnInit {
   specializations: SpecializationModel[];
   specializationList: SpecializationModel[];
 
-  constructor(private service: EmployerFormService) { }
+  constructor(private service: EmployerFormService, private router: Router) { }
 
   ngOnInit() {
     this.specializationList = mockSpecializations;
@@ -22,11 +23,13 @@ export class EmployerFormComponent implements OnInit {
   }
 
   saveEmployer() {
+    console.log(this.newEmployer);
     this.service.saveEmployer(this.newEmployer).then(employer => console.log(employer));
+    this.router.navigate(['']);
   }
 
   changeEmployerRole(role: string) {
-    this.newEmployer.employerRole = String(role);
+    this.newEmployer.role = String(role);
   }
 
 }

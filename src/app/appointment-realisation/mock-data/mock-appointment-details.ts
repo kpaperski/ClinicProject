@@ -8,7 +8,7 @@ export const MockAppointmentDetails: AppointmentDetailsModel[] = [
       firstname: 'Karol',
       surname: 'Pąperski',
       phoneNumber: 628362864,
-      pesel: '93345283845',
+      identityNumber: '93345283845',
       address: {
         id: 1,
         postCode: '02793',
@@ -30,7 +30,7 @@ export const MockAppointmentDetails: AppointmentDetailsModel[] = [
       firstname: 'Kinga',
       surname: 'Lesisz',
       phoneNumber: 573345354,
-      pesel: '93345283845',
+      identityNumber: '93345283845',
       address: {
         id: 3,
         postCode: '04942',
@@ -52,7 +52,7 @@ export const MockAppointmentDetails: AppointmentDetailsModel[] = [
       firstname: 'Mateusz',
       surname: 'Kopeć',
       phoneNumber: 725423413,
-      pesel: '93345283845',
+      identityNumber: '93345283845',
       address: {
         id: 4,
         postCode: '04942',
@@ -74,7 +74,7 @@ export const MockAppointmentDetails: AppointmentDetailsModel[] = [
       firstname: 'Aleksandra',
       surname: 'Kot',
       phoneNumber: 674325267,
-      pesel: '93345283845',
+      identityNumber: '93345283845',
       address: {
         id: 2,
         postCode: '05423',

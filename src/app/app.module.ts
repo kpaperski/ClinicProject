@@ -24,6 +24,7 @@ import {PatientCardModule} from './patient-card/patient-card.module';
 import {DoctorsOfficeModule} from './doctors-office/doctors-office.module';
 import {SpecializationModule} from './specialization/specialization.module';
 import {ExaminationsModule} from './examinations/examinations.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {ExaminationsModule} from './examinations/examinations.module';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

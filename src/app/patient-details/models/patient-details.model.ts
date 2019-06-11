@@ -5,6 +5,6 @@ export class PatientDetailsModel {
   firstname: string;
   surname: string;
   phoneNumber: number;
-  pesel: string;
+  identityNumber: string;
   address: AddressModel;
 }

@@ -36,11 +36,11 @@
             <div class="input-group-prepend">
               <span class="input-group-text" style="width: 5.5cm">Stanowisko</span>
             </div>
-            <select class="custom-select" [value]="newEmployer.employerRole" (change)="changeEmployerRole($event.target.value)">
+            <select class="custom-select" [value]="newEmployer.role" (change)="changeEmployerRole($event.target.value)">
               <option *ngFor="let role of ['recepcjonista', 'lekarz', 'administrator']" [value]="role"> {{ role }}</option>
             </select>
           </div>
-          <div *ngIf="newEmployer.employerRole === 'lekarz'" class="input-group">
+          <div *ngIf="newEmployer.role === 'lekarz'" class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text" style="width: 5.5cm">Specjalizacja</span>
             </div>

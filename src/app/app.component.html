@@ -1,10 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="row mr-3" style="height: 25pt">
-  <button *ngIf="!user || user.employerRole === ''" class="btn btn-primary btn-sm ml-auto" style="height: 22pt" (click)="loginToSystem(content)">Zaloguj</button>
-  <p *ngIf="user && user.employerRole != ''" class="ml-auto small mt-2 mr-1">Witaj, {{ user.firstname }} {{ user.surname }} {{ user.employerRole }}</p>
-  <button *ngIf="user && user.employerRole != ''" class="btn btn-primary btn-sm" style="height: 22pt" (click)="logOut()">Wyloguj</button>
+  <button *ngIf="!user || user.role === ''" class="btn btn-primary btn-sm ml-auto" style="height: 22pt" (click)="loginToSystem(content)">Zaloguj</button>
+  <p *ngIf="user && user.role != ''" class="ml-auto small mt-2 mr-1">Witaj, {{ user.firstname }} {{ user.surname }} {{ user.employerRole }}</p>
+  <button *ngIf="user && user.role != ''" class="btn btn-primary btn-sm" style="height: 22pt" (click)="logOut()">Wyloguj</button>
 </div>
-<div class="mx-auto bg-white text-white" style="width: 98%; height: 180pt">
+<div class="mx-auto bg-white text-white" style="width: 98%;">
   <div style="text-align:center; ">
     <img [src]="image" alt="Welcome image" width="100%" height="100%">
 <!--    <br>-->
@@ -13,9 +13,11 @@
 <!--    </h1>-->
   </div>
 </div>
-
-<app-sidebar *ngIf="user" [userID]="user.id" [userType]="user.employerRole"></app-sidebar>
-<div *ngIf="!user" class="row"><div class="mx-auto bg-light text-white" style="width: 95%; height: 35pt"></div></div>
+  <div *ngIf="!user" class="container ml-3 mr-3 mb-1" style="height: 2cm; width: 130%">
+    <nav class="navbar navbar-light mt-1" style="background-color: #e3f2fd; height: 2cm; width: 130%">
+    </nav>
+  </div>
+<app-sidebar *ngIf="user" [userID]="user.id" [userType]="user.role"></app-sidebar>
 <router-outlet></router-outlet>
 
 <ng-template #content let-modal>

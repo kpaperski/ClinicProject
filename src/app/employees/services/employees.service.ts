@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import {EmployeesModels} from '../models/employees.models';
-import {MockEmployees} from '../mock-data/mock-employees';
+import {HttpClient} from '@angular/common/http';
+import {serverAddress} from '../../../assets/server.constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeesService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  fetchEmployeesList(): Promise<EmployeesModels[]> {
-    return Promise.resolve(MockEmployees);
+  fetchEmployeesList(): Promise<any> {
+    return this.http.get(serverAddress + '/employee').toPromise();
   }
 }

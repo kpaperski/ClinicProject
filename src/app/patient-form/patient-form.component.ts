@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PatientDetailsModel} from '../patient-details/models/patient-details.model';
 import {PatientFormService} from './services/patient-form.service';
 import {AddressModel} from '../patient-details/models/address.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-patient-form',
@@ -11,7 +12,7 @@ import {AddressModel} from '../patient-details/models/address.model';
 export class PatientFormComponent implements OnInit {
   patientToEdit: PatientDetailsModel;
   patientAddressToEdit: AddressModel;
-  constructor(private service: PatientFormService) { }
+  constructor(private service: PatientFormService, private router: Router) { }
 
   ngOnInit() {
     this.patientToEdit = new PatientDetailsModel();
@@ -21,5 +22,6 @@ export class PatientFormComponent implements OnInit {
   savePatient() {
     this.patientToEdit.address = this.patientAddressToEdit;
     this.service.savePatient(this.patientToEdit).then((patient) => console.log(patient));
+    this.router.navigate(['']);
   }
 }
