@@ -4,6 +4,7 @@ import {DoctorsOfficeModel} from '../doctors-office/models/doctors-office.model'
 import {DoctorPlannerServices} from './services/doctor-planner.services';
 import {DutyModel} from './models/duty.model';
 import {ActivatedRoute, Router} from '@angular/router';
+import {computeStyle} from '@angular/animations/browser/src/util';
 
 @Component({
   selector: 'app-doctor-planner',
@@ -11,8 +12,12 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./doctor-planner.component.css']
 })
 export class DoctorPlannerComponent implements OnInit {
-  dayList = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek'];
+  dayList = [{id: '1', name: 'Poniedziałek'}, {id: '2', name: 'Wtorek'}, {id: '3', name: 'Środa'}, {id: '4', name: 'Czwartek'}, {id: '5', name: 'Piątek'}];
   doctorsOfficeList: DoctorsOfficeModel[];
+  startMinute: string;
+  startHour: string;
+  endMinute: string;
+  endHour: string;
   startTime = {hour: 10, minute: 0, second: 0};
   endTime = {hour: 20, minute: 0, second: 0};
   day: string;
@@ -69,10 +74,32 @@ export class DoctorPlannerComponent implements OnInit {
   }
 
   onAddDuty() {
-    this.newDuty.startTime = this.startTime;
-    this.newDuty.endTime = this.endTime;
+    if (this.startTime.minute < 10) {
+      this.startMinute = '0' + this.startTime.minute;
+    } else {
+      this.startMinute = this.startTime.minute.toString();
+    }
+    if (this.startTime.hour < 10) {
+      this.startHour = '0' + this.startTime.hour;
+    } else {
+      this.startHour = this.startTime.hour.toString();
+    }
+    if (this.endTime.minute < 10) {
+      this.endMinute = '0' + this.endTime.minute;
+    } else {
+      this.endMinute = this.endTime.minute.toString();
+    }
+    if (this.endTime.hour < 10) {
+      this.endHour = '0' + this.endTime.hour;
+    } else {
+      this.endHour = this.endTime.hour.toString();
+    }
+    this.newDuty.id = -1;
+    this.newDuty.startTime = this.startHour + ':' + this.startMinute;
+    this.newDuty.endTime = this.endHour + ':' + this.endMinute;
     this.newDuty.day = this.day;
     this.newDuty.doctorsOfficeID = this.officeID;
+    console.log(this.newDuty);
     this.service.saveDuty(this.newDuty).then((duty) => console.log(duty));
     this.router.navigate(['']);
   }

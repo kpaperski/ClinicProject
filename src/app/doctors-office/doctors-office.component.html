@@ -27,7 +27,7 @@
           <tbody>
           <tr *ngFor="let office of (officeList | filter: 'officeNum' : searchOffice); index as i">
             <th scope="row" style="width: 10%">{{ i + 1 }}</th>
-            <td style="width: 60%">{{ office.officeNum }}</td>
+            <td style="width: 60%">{{ office.number }}</td>
             <td scope="row"></td>
             <td scope="row"></td>
           </tr>
@@ -48,7 +48,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Numer gabinetu</span>
         </div>
-        <input type="string" [(ngModel)]="officeToAdd.officeNum" name="login" class="form-control">
+        <input type="string" [(ngModel)]="officeToAdd.number" name="login" class="form-control">
       </div>
     </form>
   </div>

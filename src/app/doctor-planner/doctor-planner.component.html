@@ -37,12 +37,12 @@
             <hr class="ml-3">
             <label class="ml-5">Wybierz dzień</label>
             <select class="form-control ml-5" [value]="day" (change)="changeDay($event.target.value)" style="width: 100%">
-              <option *ngFor="let days of dayList" [value]="days">{{ days }} </option>
+              <option *ngFor="let days of dayList" [value]="days.id">{{ days.name }} </option>
             </select>
             <hr class="ml-5">
             <label class="ml-5">Wybierz gabinet</label>
-            <select class="form-control ml-5" [value]="officeID" (change)="changeOffice($event.target.value)" style="width: 100%">
-              <option *ngFor="let office of doctorsOfficeList" [value]="office.id">{{ office.officeNum }} </option>
+            <select class="form-control ml-5" [(ngModel)]="officeID" style="width: 100%">
+              <option *ngFor="let office of doctorsOfficeList" [ngValue]="office.id">{{ office.number }} </option>
             </select>
           </div>
         </div>

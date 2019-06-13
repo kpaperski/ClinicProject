@@ -10,19 +10,22 @@ import {HttpClient} from '@angular/common/http';
 export class AppService {
 
   constructor(private http: HttpClient) { }
+  usersList: EmployeesModels[];
 
-  fetchEmployeesList(): Promise<any> {
+  fetchUser(userID: number): Promise<any> { //zmienić !!!!!!!!!!!!!!!!!!
+    return this.http.get(serverAddress + '/employee/' + userID).toPromise();
+    // const userToReturn: EmployeesModels = MockEmployees.filter(employer => employer.id === userID)[0];
+    // return Promise.resolve(userToReturn);
+  }
+
+  fetchUsers(): Promise<any> {
     return this.http.get(serverAddress + '/employee').toPromise();
   }
 
-  fetchUser(userID: number): Promise<EmployeesModels> { //zmienić !!!!!!!!!!!!!!!!!!
-
-    const userToReturn: EmployeesModels = MockEmployees.filter(employer => employer.id === userID)[0];
-    return Promise.resolve(userToReturn);
-  }
 
   logIn(login: string, password: string): number {
-    const user: EmployeesModels = MockEmployees.filter(employer => (employer.login === login && employer.password === password))[0];
+    this.fetchUsers().then((list: EmployeesModels[]) => this.usersList = list);
+    const user: EmployeesModels = this.usersList.filter(employer => (employer.login === login && employer.password === password))[0];
     if (user) {
       return user.id;
     } else {

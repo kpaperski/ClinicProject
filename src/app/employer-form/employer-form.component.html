@@ -44,8 +44,8 @@
             <div class="input-group-prepend">
               <span class="input-group-text" style="width: 5.5cm">Specjalizacja</span>
             </div>
-            <select class="custom-select" [value]="specializations" multiple>
-              <option *ngFor="let specialization of specializationList" [value]="specialization"> {{ specialization.name }}</option>
+            <select class="custom-select" [value]="newDoctors.specializations" multiple>
+              <option *ngFor="let specialization of specializationList" [value]="specialization.id" (change)="changeSpecializations($event.target.value)"> {{ specialization.name }}</option>
             </select>
           </div>
         </div>

@@ -4,7 +4,6 @@ import {PatientsComponent} from './patients/patients.component';
 import {PatientDetailsComponent} from './patient-details/patient-details.component';
 import {PatientFormComponent} from './patient-form/patient-form.component';
 import {PlannerComponent} from './planner/planner.component';
-import {AppointmentFormComponent} from './appointment-form/appointment-form.component';
 import {DoctorPlannerComponent} from './doctor-planner/doctor-planner.component';
 import {EmployeesComponent} from './employees/employees.component';
 import {WelcomePageComponent} from './welcome-page/welcome-page.component';
@@ -15,6 +14,7 @@ import {PatientCardComponent} from './patient-card/patient-card.component';
 import {DoctorsOfficeComponent} from './doctors-office/doctors-office.component';
 import {SpecializationComponent} from './specialization/specialization.component';
 import {ExaminationsComponent} from './examinations/examinations.component';
+import {EmployerDetailsComponent} from './employer-details/employer-details.component';
 
 const routes: Routes = [
   {
@@ -32,10 +32,6 @@ const routes: Routes = [
   {
     path: 'planner',
     component: PlannerComponent,
-  },
-  {
-    path: 'app-appointment-form/:doctorId/:visitId/:dateDay/:dateMonth/:dateYear',
-    component: AppointmentFormComponent,
   },
 
   {
@@ -61,6 +57,10 @@ const routes: Routes = [
   {
     path: 'employees',
     component: EmployeesComponent
+  },
+  {
+    path: 'employer/:id',
+    component: EmployerDetailsComponent
   },
   {
     path: 'newEmployer',

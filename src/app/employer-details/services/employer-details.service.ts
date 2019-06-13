@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {SpecializationModel} from '../models/specialization.model';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {serverAddress} from '../../../assets/server.constant';
 import {throwError} from 'rxjs';
@@ -8,7 +7,7 @@ import {catchError} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class SpecializationService {
+export class EmployerDetailsService {
 
   constructor(private http: HttpClient) { }
 
@@ -24,15 +23,19 @@ export class SpecializationService {
       'Something bad happened; please try again later.');
   };
 
-  fetchSpecializationList(): Promise<any> {
-    return this.http.get(serverAddress + '/specialization').toPromise();
+  fetchEmployer(employerID: number): Promise<any> {
+    return this.http.get(serverAddress + '/employee/' + employerID).toPromise();
   }
 
-  addSpecialization(specializationToAdd: SpecializationModel): Promise<any> {
-    return this.http.post(serverAddress + '/specialization', specializationToAdd).toPromise();
+  deleteReceptionist(employerID: number) {
+    return this.http.delete<void>(serverAddress + '/receptionist/' + employerID).pipe(catchError(this.handleError));
   }
 
-  deleteSpecialization(specializationID: number) {
-    return this.http.delete<void>(serverAddress + '/specialization/' + specializationID).pipe(catchError(this.handleError));
+  deleteAdmin(employerID: number) {
+    return this.http.delete<void>(serverAddress + '/admin/' + employerID).pipe(catchError(this.handleError));
+  }
+
+  deleteDoctor(employerID: number) {
+    return this.http.delete<void>(serverAddress + '/doctor/' + employerID).pipe(catchError(this.handleError));
   }
 }

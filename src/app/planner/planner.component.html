@@ -2,24 +2,34 @@
   <div class="card mx-auto" style="width: 95%;">
     <div class="card-header">
       <div style="text-align:center; ">
-        <h4>Terminarz</h4>
+        <h4>Zapis na wizytę</h4>
       </div>
     </div>
     <div class="card">
-      <div id="gridContainer">
-        <div class="row">
-          <div class="col-4"><app-datepicker (removeDateCalendar)="removeDateCalendar($event)"></app-datepicker></div>
-          <div class="col-6"><app-doctor-selector (removeDoctorID)="removeDoctorID($event)"></app-doctor-selector></div>
-        </div>
-        <div class="row">
-          <select class="custom-select" [value]="visitHoursID" (change)="changeVisitHoursID($event.target.value)" size="6" style="width: 100%">
-            <option *ngFor="let visit of visitHoursList" [value]="visit.id"> {{ visit.startHour }}.{{ visit.startMinute }} - {{ visit.endHour }}.{{ visit.endMinute }}</option>
-          </select>
-        </div>
-        <div class="row mt-3">
-            <button class="btn btn-primary mr-2 m-auto" style="text-align:center" (click)="onSignUpButtonClicked()">Zapisz na wizytę</button>
-        </div>
+          <app-doctor-selector (removeSpecializationID)="removeSpecializationID($event)" (removeDoctorID)="removeDoctorID($event)"></app-doctor-selector>
+      <br>
+      <div class="row mr-2 m-auto mt-2">
+        <button class="btn btn-primary ml-2" style="text-align:center" (click)="onSearchByDoctorButtonClicked()">Szukaj terminu do lekarza</button>
       </div>
+      <br>
+          <select class="form-control mr-2 m-auto mt-2" id="visit" [(ngModel)]="visit" size="6" style="width: 70%">
+            <option *ngFor="let visits of visitHoursList" [ngValue]="visits"> {{ visits.date }} godz: {{ visits.time }} Lekarz: {{ visits.doctorName }}</option>
+          </select>
+      <br>
+      <form>
+        <div class="form-group ml-3 m-auto" style="width: 15%">
+          <div class="input-group">
+            <input type="text" placeholder="Patient to search..." [(ngModel)]="searchString" name="text" class="form-control">
+          </div>
+        </div>
+      </form>
+      <br>
+      <select class="custom-select ml-5 m-auto" [value]="patientID" (change)="changePatientID($event.target.value)" size="6" style="width: 90%">
+        <option *ngFor="let patient of (patientsList | filter: 'firstname': 'surname' : searchString)" [value]="patient.id"> {{ patient.firstname }} {{ patient.surname }}</option>
+      </select>
+      <br>
+      <button class="btn btn-primary mt-2 m-auto" style="text-align:center" (click)="saveAppointment()">Zapisz na wizytę</button>
+      <br>
     </div>
   </div>
 </div>

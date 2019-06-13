@@ -30,7 +30,6 @@ export class ExaminationsComponent implements OnInit {
   }
 
   changeExaminationReferral(referral: boolean) {
-    this.examinationToAdd.referral = referral;
+    this.examinationToAdd.referralNeeded = referral;
   }
-
 }

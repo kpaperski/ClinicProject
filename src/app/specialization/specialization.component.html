@@ -21,15 +21,13 @@
             <th scope="col">#</th>
             <th scope="col">Nazwa specializacji lekarskiej</th>
             <th scope="col"></th>
-            <th scope="col"></th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let specialization of (specializationList | filter: 'name' : searchSpecialization); index as i">
             <th scope="row" style="width: 10%">{{ i + 1 }}</th>
-            <td style="width: 60%">{{ specialization.name }}</td>
-            <td scope="row"></td>
-            <td scope="row"></td>
+            <td style="width: 85%">{{ specialization.name }}</td>
+            <td scope="row"><img class="mr-auto" (click)="clickOnBin(specialization.id)" [src]="image" alt="Bin image" width="20 pt"></td>
           </tr>
           </tbody>
         </table>

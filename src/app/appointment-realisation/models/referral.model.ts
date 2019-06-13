@@ -1,4 +1,7 @@
+import {ScopeOfExaminationModel} from './scope-of-examination.model';
+
 export class ReferralModel {
   id: number;
-  scopeOfExaminations: string;
+  appointmentID: number;
+  scope: ScopeOfExaminationModel;
 }

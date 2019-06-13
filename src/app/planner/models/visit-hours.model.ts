@@ -1,7 +1,6 @@
 export class VisitHoursModel {
   id: number;
-  startHour: number;
-  startMinute: number;
-  endHour: number;
-  endMinute: number;
+  date: string;
+  time: string;
+  doctorName: string;
 }

@@ -29,7 +29,7 @@
             <th scope="row" style="width: 10%">{{ i + 1 }}</th>
             <td scope="row" style="width: 20%">{{ examination.name }}</td>
             <td scope="row" style="width: 20%">{{ examination.price }}</td>
-            <td *ngIf="examination.referral" scope="row" style="width: 20%">TAK</td><td *ngIf="!examination.referral" scope="row" style="width: 20%">NIE</td>
+            <td *ngIf="examination.referralNeeded" scope="row" style="width: 20%">TAK</td><td *ngIf="!examination.referralNeeded" scope="row" style="width: 20%">NIE</td>
           </tr>
           </tbody>
         </table>

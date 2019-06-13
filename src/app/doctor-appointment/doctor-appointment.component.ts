@@ -11,15 +11,13 @@ import {DoctorAppointmentModel} from './models/doctor-appointment.model';
 })
 export class DoctorAppointmentComponent implements OnInit {
   doctorID: number;
-  today: NgbDateStruct;
   appointmentList: DoctorAppointmentModel[];
 
-  constructor(private route: ActivatedRoute, private service: DoctorAppointmentService, private calendar: NgbCalendar, private router: Router) { }
+  constructor(private route: ActivatedRoute, private service: DoctorAppointmentService, private router: Router) { }
 
   ngOnInit() {
     this.doctorID = Number(this.route.snapshot.params.doctorId);
-    this.today = this.calendar.getToday();
-    this.service.fetchDoctorAppointmentsLists(this.doctorID, this.today).then((list: DoctorAppointmentModel[]) => this.appointmentList = list);
+    this.service.fetchDoctorAppointmentsLists(this.doctorID).then((list: DoctorAppointmentModel[]) => this.appointmentList = list);
   }
 
   onEditAppointmentButtonClick(appointment: DoctorAppointmentModel) {

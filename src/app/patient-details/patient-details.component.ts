@@ -23,7 +23,8 @@ export class PatientDetailsComponent implements OnInit {
     this.service.fetchPatient(this.patientID).then((patient: PatientDetailsModel) => this.patient = patient);
   }
 
-  onSignUpButtonClicked() {
-    this.router.navigate(['signUp']);
+  onDeletePatientButtonClicked() {
+    this.service.deletePatient(this.patientID).subscribe();
+    this.router.navigate(['']);
   }
 }

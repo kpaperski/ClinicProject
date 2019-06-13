@@ -5,6 +5,8 @@ import {AppointmentRealisationService} from './services/appointment-realisation.
 import {ExaminationModel} from '../examinations/models/examination.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ReferralModel} from './models/referral.model';
+import {AppointmentExaminationModel} from './models/appointment-examination.model';
+import {ScopeOfExaminationModel} from './models/scope-of-examination.model';
 
 @Component({
   selector: 'app-appointment-realisation',
@@ -13,7 +15,9 @@ import {ReferralModel} from './models/referral.model';
 })
 export class AppointmentRealisationComponent implements OnInit {
   examinationIdToAdd: number;
+  scopeOfExaminationList: ScopeOfExaminationModel[];
   referralToAdd: ReferralModel;
+  appointmentExamination: AppointmentExaminationModel;
   examinationList: ExaminationModel[];
   appointmentID: number;
   appointmentDetails: AppointmentDetailsModel;
@@ -23,12 +27,15 @@ export class AppointmentRealisationComponent implements OnInit {
   ngOnInit() {
     this.fetchAppointmentInfo();
     this.referralToAdd = new ReferralModel();
+    this.referralToAdd.scope = new ScopeOfExaminationModel();
+    this.appointmentExamination = new AppointmentExaminationModel();
   }
 
   fetchAppointmentInfo() {
     this.appointmentID = Number(this.route.snapshot.params.appointmentId);
     this.service.fetchAppointment(this.appointmentID).then((appointment: AppointmentDetailsModel) => this.appointmentDetails = appointment);
     this.service.fetchExaminationList().then((list: ExaminationModel[]) => this.examinationList = list);
+    this.service.fetchScopeOfExamination().then((list: ScopeOfExaminationModel[]) => this.scopeOfExaminationList = list);
   }
 
   onAddExaminationClicked(content) {
@@ -36,8 +43,11 @@ export class AppointmentRealisationComponent implements OnInit {
   }
 
   addExaminationToAppointment(content) {
-    this.service.addExamination(this.appointmentID, this.examinationIdToAdd);
+    this.appointmentExamination.appointmentID = this.appointmentID;
+    this.appointmentExamination.examinationID = this.examinationIdToAdd;
+    this.service.addExamination(this.appointmentExamination).then();
     content.close();
+    this.service.fetchAppointment(this.appointmentID).then((appointment: AppointmentDetailsModel) => this.appointmentDetails = appointment);
   }
 
   changeExaminationID(ID: number) {
@@ -49,8 +59,10 @@ export class AppointmentRealisationComponent implements OnInit {
   }
 
   addReferralToAppointment(content) {
-    this.service.addReferral(this.appointmentID, this.referralToAdd).then(referral => console.log(referral));
+    this.referralToAdd.appointmentID = this.appointmentID;
+    this.service.addReferral(this.referralToAdd).then(referral => console.log(referral));
     content.close();
+    this.service.fetchAppointment(this.appointmentID).then((appointment: AppointmentDetailsModel) => this.appointmentDetails = appointment);
   }
 
   onPatientCardClicked() {

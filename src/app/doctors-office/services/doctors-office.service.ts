@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import {DoctorsOfficeModel} from '../models/doctors-office.model';
-import {mockDoctorsOffice} from '../mock-data/mock-doctors-office';
+import {HttpClient} from '@angular/common/http';
+import {serverAddress} from '../../../assets/server.constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DoctorsOfficeService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  fetchDoctorsOfficeList(): Promise<DoctorsOfficeModel[]> {
-    return Promise.resolve(mockDoctorsOffice);
+  fetchDoctorsOfficeList(): Promise<any> {
+    return this.http.get(serverAddress + '/surgery').toPromise();
   }
 
   addOffice(officeToAdd: DoctorsOfficeModel) {
-    return Promise.resolve(officeToAdd);
+    return this.http.post(serverAddress + '/surgery', officeToAdd).toPromise();
   }
 }

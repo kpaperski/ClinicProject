@@ -7,8 +7,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="">Strona główna</a>
+            </li>
         <li class="nav-item">
-          <a *ngIf="userType === 'recepcjonista'" class="nav-link" (click)="onPlannerButtonClick()">Terminarz</a>
+          <a *ngIf="userType === 'recepcjonista'" class="nav-link" (click)="onPlannerButtonClick()">Zapisz na wizytę</a>
         </li>
         <li class="nav-item">
           <a *ngIf="userType === 'recepcjonista'" class="nav-link" (click)="onNewPatientButtonClick()">Dodaj pacjenta</a>

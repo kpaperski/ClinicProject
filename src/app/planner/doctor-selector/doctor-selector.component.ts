@@ -15,6 +15,7 @@ import {DoctorSelectorService} from './services/doctor-selector.service';
 export class DoctorSelectorComponent implements OnInit {
   specializationID: number;
   @Output() removeDoctorID = new EventEmitter<number>();
+  @Output() removeSpecializationID = new EventEmitter<number>();
   doctorID: number;
   specialization: SpecializationModel;
   specializationList: SpecializationModel[];
@@ -24,7 +25,7 @@ export class DoctorSelectorComponent implements OnInit {
 
   ngOnInit() {
     this.specialization = new SpecializationModel();
-    this.specializationList = mockSpecializations;
+    this.service.fetchSpecializationList().then((list: SpecializationModel[]) => this.specializationList = list);
     this.service.fetchDoctorList().then((list: DoctorDetailsModel[]) => this.doctorList = list);
   }
 
@@ -39,5 +40,9 @@ export class DoctorSelectorComponent implements OnInit {
 
   emitDoctorID() {
     this.removeDoctorID.emit(this.doctorID);
+  }
+
+  emitSpecializationID() {
+    this.removeSpecializationID.emit(this.specializationID);
   }
 }

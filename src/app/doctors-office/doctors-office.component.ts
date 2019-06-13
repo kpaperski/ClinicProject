@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DoctorsOfficeService} from './services/doctors-office.service';
 import {DoctorsOfficeModel} from './models/doctors-office.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-doctors-office',
@@ -13,7 +14,7 @@ export class DoctorsOfficeComponent implements OnInit {
   searchOffice: string;
   officeToAdd: DoctorsOfficeModel;
 
-  constructor(private service: DoctorsOfficeService, private modalService: NgbModal) { }
+  constructor(private service: DoctorsOfficeService, private modalService: NgbModal, private router: Router) { }
 
   ngOnInit() {
     this.service.fetchDoctorsOfficeList().then((list: DoctorsOfficeModel[]) => this.officeList = list);
@@ -27,6 +28,7 @@ export class DoctorsOfficeComponent implements OnInit {
   addOffice(content) {
     this.service.addOffice(this.officeToAdd).then((office: DoctorsOfficeModel) => console.log(office));
     content.close();
+    this.router.navigate(['']);
   }
 
 }

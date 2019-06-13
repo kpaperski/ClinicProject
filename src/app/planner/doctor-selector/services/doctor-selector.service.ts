@@ -12,4 +12,8 @@ export class DoctorSelectorService {
   fetchDoctorList(): Promise<any> {
     return this.http.get(serverAddress + '/doctor').toPromise();
   }
+
+  fetchSpecializationList(): Promise<any> {
+    return this.http.get(serverAddress + '/specialization').toPromise();
+  }
 }

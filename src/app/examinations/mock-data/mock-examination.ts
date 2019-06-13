@@ -5,24 +5,24 @@ export const MockExamination: ExaminationModel[] = [
     id: 1,
     name: 'konsultacje lekarza rodzinnego',
     price: 50,
-    referral: false
+    referralNeeded: false
   },
   {
     id: 2,
     name: 'konsultacje specjalisty',
     price: 100,
-    referral: false
+    referralNeeded: false
   },
   {
     id: 3,
     name: 'badanie wzroku',
     price: 100,
-    referral: false
+    referralNeeded: false
   },
   {
     id: 4,
     name: 'badanie ultrasonograficzne',
     price: 50,
-    referral: false
+    referralNeeded: false
   }
 ];

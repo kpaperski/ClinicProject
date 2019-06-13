@@ -3,15 +3,17 @@ import {PlannerComponent} from './planner.component';
 import {CommonModule} from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DoctorSelectorComponent} from './doctor-selector/doctor-selector.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {DatepickerComponent} from './datepicker/datepicker.component';
+import {FilterPipe} from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     PlannerComponent,
     DoctorSelectorComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    FilterPipe
   ],
   exports: [
     DatepickerComponent
@@ -20,7 +22,8 @@ import {DatepickerComponent} from './datepicker/datepicker.component';
     CommonModule,
     NgbModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class PlannerModule { }

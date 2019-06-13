@@ -4,28 +4,34 @@ import {MockAppointmentDetails} from '../mock-data/mock-appointment-details';
 import {ExaminationModel} from '../../examinations/models/examination.model';
 import {MockExamination} from '../../examinations/mock-data/mock-examination';
 import {ReferralModel} from '../models/referral.model';
+import {HttpClient} from '@angular/common/http';
+import {serverAddress} from '../../../assets/server.constant';
+import {AppointmentExaminationModel} from '../models/appointment-examination.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentRealisationService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  fetchAppointment(appointmentID: number): Promise<AppointmentDetailsModel> {
-    const appointmentToReturn: AppointmentDetailsModel = MockAppointmentDetails.filter(appointment => appointment.id === appointmentID)[0];
-    return Promise.resolve(appointmentToReturn);
+  fetchAppointment(appointmentID: number): Promise<any> {
+    return this.http.get(serverAddress + '/appointment/details/' + appointmentID).toPromise();
   }
 
-  fetchExaminationList(): Promise<ExaminationModel[]> {
-    return Promise.resolve(MockExamination);
+  fetchExaminationList(): Promise<any> {
+    return this.http.get(serverAddress + '/examination').toPromise();
   }
 
-  addExamination(appointmentID: number, examinationID: number) {
-    console.log('Dodane');
+  fetchScopeOfExamination(): Promise<any> {
+    return this.http.get(serverAddress + '/scopeOfExamination').toPromise();
   }
 
-  addReferral(appointmentID: number, referral: ReferralModel): Promise<ReferralModel> {
-    return Promise.resolve(referral);
+  addExamination(appointmentExaminationToAdd: AppointmentExaminationModel): Promise<any> {
+    return this.http.post(serverAddress + '/appointmentExamination', appointmentExaminationToAdd).toPromise();
+  }
+
+  addReferral(referralToAdd: ReferralModel): Promise<any> {
+    return this.http.post(serverAddress + '/referral', referralToAdd).toPromise();
   }
 }
