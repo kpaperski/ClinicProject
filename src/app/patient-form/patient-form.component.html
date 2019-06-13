@@ -30,7 +30,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text" style="width: 5.5cm">PESEL</span>
             </div>
-            <input type="text" [(ngModel)]="patientToEdit.identityNumber" name="phoneNumber" class="form-control">
+            <input type="text" [(ngModel)]="patientToEdit.identityNumber" name="identityNumber" class="form-control">
           </div>
           <div class="input-group">
             <div class="input-group-prepend">
@@ -59,6 +59,7 @@
         </div>
       </form>
     </div>
+    <div *ngIf="ctrl.errors['error']">Niepoprawny PESEL</div>
     <div class="card-footer m-auto">
       <div class="btn btn-primary m-auto" style="text-align: center" (click)="savePatient()">Zapisz</div>
     </div>

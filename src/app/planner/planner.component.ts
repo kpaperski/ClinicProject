@@ -60,5 +60,6 @@ export class PlannerComponent implements OnInit {
     this.appointmentToSave.doctorID = this.doctorID;
     this.appointmentToSave.patientID = this.patientID;
     this.service.saveAppointment(this.appointmentToSave).then((appointment) => console.log(appointment));
+    this.router.navigate(['']);
   }
 }

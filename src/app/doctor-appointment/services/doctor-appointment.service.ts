@@ -13,7 +13,6 @@ export class DoctorAppointmentService {
   constructor(private http: HttpClient) { }
 
   fetchDoctorAppointmentsLists(doctorID: number): Promise<any> {
-    console.log(doctorID);
     return this.http.get(serverAddress + '/appointment/doctor/' + doctorID).toPromise();
   }
 }
